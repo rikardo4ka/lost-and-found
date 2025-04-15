@@ -1,0 +1,395 @@
+.container{
+    margin: 0px 120px;
+}
+body{
+    margin: 0;
+    font-family: "Montserrat", sans-serif;
+}
+.header{
+    background-image: url(bg.png);
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.h-line{
+    padding-top: 60px;
+     display: flex;/*все элементы в линию */
+    align-items: center; /*выравнивание по линии главного элемента*/
+    
+}
+
+.h-logo{
+    margin-right: 355px;
+}
+
+.nav-item {
+    color: #fff;
+    text-decoration: none;
+    font-size: 30px;
+    margin-right: 70px;
+    display: inline-block; /* Важно! */
+    padding: 5px 10px; /* Для плавного увеличения */
+    transition: transform 0.3s ease;
+}
+
+.nav-item:hover {
+    transform: scale(1.1);
+}
+
+.h-title{
+    color: #fff;
+    font-family: "Playfair Display", serif;
+    font-weight: bold;
+    font-size: 60px;
+    margin: 146px 0;
+}
+.header-down{
+
+}
+.h-subtitle{
+    margin-top: 25px;
+    font-family: "Montserrat", sans-serif;
+    font-size: 40px;
+    font-weight: 400;
+}
+.h-links{
+    color: #fff;
+    font-size: 30px;
+    font-family: "Montserrat", sans-serif;
+    display: flex;
+    align-items: center;
+}
+
+.h-links-title{
+    color: #fff;
+    font-size: 30px;
+    font-family: "Montserrat", sans-serif;
+    margin-bottom: 14px;
+}
+
+.link-item{
+    text-decoration: none;
+    color: #fff;
+    font-weight: 600;
+    margin-bottom: 10px;
+    margin-right: 240px;
+}
+
+.less-block{
+    margin-right: 73px;
+    position: relative;  /* Создает контекст для абсолютного позиционирования */
+    height: 300px;       /* Фиксированная высота карточки */
+    overflow: hidden;    /* Обрезает выходящие за границы элементы */
+    border-radius: 15px; /* Скругленные углы */
+}
+
+.less-title{
+    position: absolute; /* Абсолютное позиционирование относительно .less-block */
+    bottom: 0;         /* Прижимаем к нижнему краю */
+    left: 0;
+    width: 100%;
+    padding: 5px;
+    padding-bottom: 20px;
+    color: white;
+    z-index: 2; 
+    display: flex;
+    justify-content: space-around;
+}
+
+
+.less-blocks{
+    display: flex;
+    padding-bottom: 100px;
+    background-color: transparent;
+}
+
+.arrow-icon{
+    transition: transform 0.3s ease;
+}
+
+.arrow-icon:hover {
+    transform: scale(1.1); /* Увеличение на 10% */
+}
+
+.ads{
+    display: flex;
+    margin: 200px;
+    align-items: center;
+    gap: 75px;
+}
+
+.ads-title{
+    font-family: "Playfair Display", serif;
+    font-weight: 700;
+    font-size: 55px;
+    margin-bottom: 30px;
+}
+
+.ads-subtitle{
+    font-family: "Montserrat", serif;
+    font-size: 30px;
+    margin-bottom: 60px;
+}
+
+.ads-right{
+    display: flex;
+    flex-direction: column; 
+}
+
+.ads-button{
+    width: 318px;
+    height: 94px;
+}
+
+.ads-button a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    color: #AB864E; /* Цвет текста */
+    border: 2px solid #AB864E; /* Обводка цвета #AB864E */
+    text-decoration: none;
+    font-family: "Montserrat", serif;
+    font-weight: bold;
+    font-size: 30px; /* Размер шрифта */
+    border-radius:52px; /* Скругление углов */
+    transition: all 0.3s ease; /* Плавные анимации */
+    background-color: transparent; /* Прозрачный фон */
+}
+
+.ads-button a:hover{
+    background-color: #AB864E; /* Фон при наведении */
+    color: white; /* Цвет текста при наведении */
+}
+
+.statement{
+    display: flex;
+    margin: 0px 226px 200px 124px;
+}
+.statement-img{
+    margin-right: 32px;
+}
+.statement-title{
+    font-family: "Playfair Display", serif;
+    font-weight: 700;
+    font-size: 50px;
+    margin-bottom: 25px;
+}
+
+.statement-subtitle{
+    font-family: "Montserrat", serif;
+    font-weight: 400;
+    font-size: 30px; 
+}
+.statement-button-and-text{
+    display: flex;
+    flex-direction: column;
+    margin: auto 20px;
+    gap: 15px;
+    text-align: center;
+}
+.statement-text1-under-button{
+    font-family: "Montserrat", serif;
+    font-weight: 400;
+    font-size: 19px; 
+    width: 374px;
+    height: 70px;
+    
+}
+.statement-text2-under-button{
+    /* font-family: "Montserrat", serif;
+    font-weight: 400;
+    font-size: 19px;  */
+    color: #AB864E;
+    /* margin-left: 75px; */
+}
+.statement-button{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    
+    max-width: 300px;
+    /* margin: 20px auto; */
+    font-family: "Montserrat", serif;
+    font-weight: 700;
+    font-size: 30px; 
+
+}
+
+.statement-input-button {
+    position: relative;
+    width: 382px;
+    height: 87px;
+    border: 3px solid black;
+    border-radius: 52px;
+    cursor: text;
+  }
+
+.display-text {
+    position: absolute;
+    top: 50%;
+    left: 15px;
+    transform: translateY(-50%);
+    color: #1C130C;
+    pointer-events: none;
+  }
+
+.hidden-input {
+    width: 100%;
+    height: 100%;
+    padding: 0 15px;
+    border: none;
+    background: transparent;
+    font-family: "Montserrat", serif;
+    font-weight: 700;
+    font-size: 30px;
+    outline: none;
+    opacity: 0;
+  }
+  
+.hidden-input:focus {
+    opacity: 1;
+  }
+  
+.hidden-input:focus + .display-text {
+    display: none;
+  }
+
+.statement-submit-btn {
+    width: 382px;
+    height: 87px;
+    background-color: #AB864E;
+    color: white;
+    border: none;
+    font-family: "Montserrat", serif;
+    font-weight: 700;
+    border-radius: 52px;
+    font-size: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+.statement-submit-btn:hover {
+    background-color: #fff;
+    color: #AB864E;
+    border: 3px solid #AB864E;
+  }
+  
+.reviews{
+    display: flex;
+    margin: 200px;
+    gap: 70px;
+}
+
+.reviews-title{
+    font-family: "Playfair Display", serif;
+    font-weight: 700;
+    font-size: 50px;
+    margin-bottom: 30px;
+}
+
+.reviews-subtitle{
+    font-family: "Montserrat", serif;
+    font-weight: 400;
+    font-size: 30px;
+    margin-bottom: 50px;
+}
+.reviews-block{
+    position: relative;  /* Создает контекст для абсолютного позиционирования */
+    width: 830px;
+    height: 542px;       /* Фиксированная высота карточки */
+    overflow: hidden;    /* Обрезает выходящие за границы элементы */
+    border-radius: 15px; /* Скругленные углы */
+}
+
+.reviews-text{
+    flex-direction: column;
+    position: absolute; /* Абсолютное позиционирование относительно .less-block */
+    bottom: 0;         /* Прижимаем к нижнему краю */
+    left: 0;
+    width: 100%;
+    margin: 43px auto 30px 30px;
+    color: white;
+    z-index: 2; 
+    display: flex;
+    justify-content: space-around;
+}
+.reviews-img-title{
+    margin-bottom: 10px;
+    font-family: "Playfair Display", serif;
+    font-weight: 400;
+    font-size: 40px;
+}
+
+.reviews-img-subtitle{
+    margin-bottom: 184px;
+    font-family: "Montserrat", serif;
+    font-weight: 400;
+    font-size: 30px;
+}
+.reviews-desc{
+    display: flex;
+    font-family: "Montserrat", serif;
+    font-weight: 400;
+    font-size: 30px;
+}
+
+.reviews-button{
+    width: 318px;
+    height: 94px;
+}
+
+.reviews-button a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    color: #AB864E; /* Цвет текста */
+    border: 2px solid #AB864E; /* Обводка цвета #AB864E */
+    text-decoration: none;
+    font-family: "Montserrat", serif;
+    font-weight: bold;
+    font-size: 30px; /* Размер шрифта */
+    border-radius:52px; /* Скругление углов */
+    transition: all 0.3s ease; /* Плавные анимации */
+    background-color: transparent; /* Прозрачный фон */
+}
+
+.reviews-button a:hover{
+    background-color: #AB864E; /* Фон при наведении */
+    color: white; /* Цвет текста при наведении */
+}
+
+.footer{
+    background-color: #D9D9D9;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.f-line{
+    padding: 77px 129px 90px 123px;
+    justify-content: space-around;
+    display: flex;/*все элементы в линию */
+    align-items: center; /*выравнивание по линии главного элемента*/
+    
+}
+
+.f-text{
+    font-family: "Montserrat", serif;
+    font-weight: bold;
+    font-size: 20px;
+    color: #82776E;
+    margin-right: 173px;
+}
+
+.f-logo{
+    margin-right: 169px;
+}
+
+.f-icon {
+    filter: brightness(0.5) saturate(100%);
+    margin-right: 87px;
+  }
