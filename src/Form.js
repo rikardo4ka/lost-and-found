@@ -1,5 +1,11 @@
 import React, { useState } from 'react';
 
+const API_URL =
+  window.location.hostname === "localhost"
+    ? "http://localhost:8080"
+    : "https://observantly-earnest-finfoot.cloudpub.ru";
+
+
 function Form() {
   const [fullname, setFullname] = useState('');
   const [phone, setPhone] = useState('');
@@ -9,13 +15,14 @@ function Form() {
     const data = { fullname, phone };
 
     try {
-      const response = await fetch('http://localhost:8080/api/form', {
+      const response = await fetch(`${API_URL}/api/form`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify(data),
       });
+      
 
       if (response.ok) {
         alert('Заявка успешно отправлена!');
