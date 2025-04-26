@@ -1,8 +1,33 @@
-import React from 'react';
-import './styles.css'; // Подключи свой CSS
+import React, { useState } from 'react';
+import './styles.css';
 import Form from './Form';
+import Modal from './Modal';
+import ModalReg from './ModalReg';
 
 function App() {
+   // Состояния для двух разных модальных окон
+   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
+   const [isRegModalOpen, setIsRegModalOpen] = useState(false);
+ 
+   const openLoginModal = (e) => {
+     e?.preventDefault();
+     setIsLoginModalOpen(true);
+   };
+ 
+   const closeLoginModal = () => {
+     setIsLoginModalOpen(false);
+   };
+ 
+   const openRegModal = (e) => {
+     e?.preventDefault();
+     setIsRegModalOpen(true);
+     closeLoginModal(); // Закрываем модалку входа при открытии регистрации
+   };
+ 
+   const closeRegModal = () => {
+     setIsRegModalOpen(false);
+   };
+
   return (
     <div>
       <div className="header">
@@ -16,6 +41,61 @@ function App() {
               <a className="nav-item" href="#">Все объявления</a>
               <a className="nav-item" href="#">Отзывы</a>
               <a className="nav-item" href="#">Контакты</a>
+              <button 
+                className="nav-item icon-button" 
+                onClick={openLoginModal}
+                aria-label="Открыть модальное окно"
+              >
+                <img src="/картино4ки/иконка (1).png" alt="" height="56" width="56" />
+              </button>
+              <Modal isOpen={isLoginModalOpen} onClose={closeLoginModal}>
+                <span className='ent-title'>Вход</span>
+                <div className="ent-content">
+                  <div className="ent-input">
+                    <input type="login" id="login" placeholder="Логин" />
+                  </div>
+                  <div className="ent-input">
+                    <input type="password" id="password" placeholder="Пароль" />
+                  </div>
+                  <div className="reviews-button">
+                    <a href="#">Войти</a>
+                  </div>
+                  <span>или</span>
+                  <button 
+                    className='ent-reg' 
+                    onClick={openRegModal} 
+                    aria-label="Открыть окно регистрации"
+                  >
+                    Зарегистрироваться
+                  </button>
+                </div>
+              </Modal>
+              <Modal isOpen={isRegModalOpen} onClose={closeRegModal}>
+                <span className='ent-title'>Регистрация</span>
+                <div className="ent-content">
+                <div className="ent-input">
+                    <input type="text" placeholder="Фамилия" />
+                  </div>
+                  <div className="ent-input">
+                    <input type="text" placeholder="Имя" />
+                  </div>
+                  <div className="ent-input">
+                    <input type="text" placeholder="Отчество" />
+                  </div>
+                  <div className="ent-input">
+                    <input type="tel" placeholder="Номер телефона" />
+                  </div>
+                  <div className="ent-input">
+                    <input type="email" placeholder="Email" />
+                  </div>
+                  <div className="ent-input">
+                    <input type="password" placeholder="Пароль" />
+                  </div>
+                  <div className="reviews-button">
+                    <button onClick={closeRegModal}>Зарегистрироваться</button>
+                  </div>
+                </div>
+              </Modal>
             </div>
           </div>
           <div className="h-down">
@@ -80,6 +160,8 @@ function App() {
             </div>
           </div>
         </div>
+
+        
       </div>
 
       <div className="ads">
