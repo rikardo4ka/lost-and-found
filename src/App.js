@@ -4,6 +4,12 @@ import Form from './Form';
 import Modal from './Modal';
 import ModalReg from './ModalReg';
 
+const API_URL =
+  window.location.hostname === "localhost"
+    ? "http://localhost:8080"
+    : "https://observantly-earnest-finfoot.cloudpub.ru";
+
+
 function App() {
    // Состояния для двух разных модальных окон
    const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
@@ -50,52 +56,120 @@ function App() {
               </button>
               <Modal isOpen={isLoginModalOpen} onClose={closeLoginModal}>
                 <span className='ent-title'>Вход</span>
-                <div className="ent-content">
+                <form
+                  className="ent-content"
+                  onSubmit={async (e) => {
+                    e.preventDefault();
+                    const login = document.getElementById("login").value;
+                    const password = document.getElementById("password").value;
+
+                    try {
+                      const response = await fetch(`${API_URL}/api/login`, {
+                        method: 'POST',
+                        headers: {
+                          'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({ email: login, password: password }),
+                      });
+
+                      if (response.ok) {
+                        const data = await response.json();
+                        alert('Успешный вход!');
+                        console.log('Токен или данные:', data);
+                        closeLoginModal();
+                      } else {
+                        alert('Неверный логин или пароль');
+                      }
+                    } catch (error) {
+                      console.error('Ошибка при входе:', error);
+                    }
+                  }}
+                >
                   <div className="ent-input">
-                    <input type="login" id="login" placeholder="Логин" />
+                    <input type="text" id="login" placeholder="Логин" required />
                   </div>
                   <div className="ent-input">
-                    <input type="password" id="password" placeholder="Пароль" />
+                    <input type="password" id="password" placeholder="Пароль" required />
                   </div>
                   <div className="reviews-button">
-                    <a href="#">Войти</a>
+                    <button type="submit">Войти</button>
                   </div>
                   <span>или</span>
                   <button 
                     className='ent-reg' 
+                    type="button"
                     onClick={openRegModal} 
                     aria-label="Открыть окно регистрации"
                   >
                     Зарегистрироваться
                   </button>
-                </div>
+                </form>
               </Modal>
+
               <Modal isOpen={isRegModalOpen} onClose={closeRegModal}>
                 <span className='ent-title'>Регистрация</span>
-                <div className="ent-content">
-                <div className="ent-input">
-                    <input type="text" placeholder="Фамилия" />
+                <form
+                  className="ent-content"
+                  onSubmit={async (e) => {
+                    e.preventDefault();
+                    const lastName = document.getElementById("lastName").value;
+                    const firstName = document.getElementById("firstName").value;
+                    const middleName = document.getElementById("middleName").value;
+                    const phone = document.getElementById("regPhone").value;
+                    const email = document.getElementById("regEmail").value;
+                    const password = document.getElementById("regPassword").value;
+
+                    try {
+                      const response = await fetch(`${API_URL}/api/register`, {
+                        method: 'POST',
+                        headers: {
+                          'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({
+                          lastName,
+                          firstName,
+                          middleName,
+                          phone,
+                          email,
+                          password
+                        }),
+                      });
+
+                      if (response.ok) {
+                        alert('Регистрация прошла успешно!');
+                        closeRegModal();
+                      } else {
+                        alert('Ошибка при регистрации');
+                      }
+                    } catch (error) {
+                      console.error('Ошибка регистрации:', error);
+                    }
+                  }}
+                >
+                  <div className="ent-input">
+                    <input type="text" id="lastName" placeholder="Фамилия" required />
                   </div>
                   <div className="ent-input">
-                    <input type="text" placeholder="Имя" />
+                    <input type="text" id="firstName" placeholder="Имя" required />
                   </div>
                   <div className="ent-input">
-                    <input type="text" placeholder="Отчество" />
+                    <input type="text" id="middleName" placeholder="Отчество" />
                   </div>
                   <div className="ent-input">
-                    <input type="tel" placeholder="Номер телефона" />
+                    <input type="tel" id="regPhone" placeholder="Номер телефона" required />
                   </div>
                   <div className="ent-input">
-                    <input type="email" placeholder="Email" />
+                    <input type="email" id="regEmail" placeholder="Email" required />
                   </div>
                   <div className="ent-input">
-                    <input type="password" placeholder="Пароль" />
+                    <input type="password" id="regPassword" placeholder="Пароль" required />
                   </div>
                   <div className="reviews-button">
-                    <button onClick={closeRegModal}>Зарегистрироваться</button>
+                    <button type="submit">Зарегистрироваться</button>
                   </div>
-                </div>
+                </form>
               </Modal>
+
             </div>
           </div>
           <div className="h-down">
